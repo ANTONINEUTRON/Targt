@@ -30,15 +30,16 @@ public class AlarmReceiver extends BroadcastReceiver {
         // This method is called when the BroadcastReceiver is receiving
         // an Intent broadcast.
         String description = intent.getStringExtra(AlarmHandler.TARGET_TAG);
-//        Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-//        vibrator.vibrate(new VibrationEffect());
+
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             createNotificationChannel(context);
         }
 
         Intent i = new Intent(context, ViewTaskActivity.class);
         i.putExtra(TasksAdapter.TASK_ID, intent.getIntExtra(TasksAdapter.TASK_ID,0));
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 11222, i, PendingIntent.FLAG_UPDATE_CURRENT);
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 11222, i, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID);
         builder.setSmallIcon(R.mipmap.ic_launcher)
