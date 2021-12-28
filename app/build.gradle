@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "com.neutron.targt"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 32
         versionCode 1
         versionName "1.0"
 
@@ -37,4 +37,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    //Room Components
+    implementation "androidx.room:room-runtime:2.4.0"
+    annotationProcessor "androidx.room:room-compiler:2.4.0"
 }

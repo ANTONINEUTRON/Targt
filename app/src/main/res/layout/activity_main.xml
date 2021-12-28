@@ -20,7 +20,28 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".HomeFragment"
+        android:layout_marginTop="56dp">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tasks"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/no_task_found"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NO TASK YET \n CLICK THE BUTTON BELOW TO ADD NEW TASK"
+            android:padding="@dimen/std_padding"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:layout_marginTop="@dimen/fab_margin"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="@dimen/big_text_size"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -28,6 +49,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:srcCompat="@drawable/add_task" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
